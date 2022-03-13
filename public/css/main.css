@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap');
+
+:root {
+    /* font sizes */
+    --fs-300: 0.850rem;
+    --fs-400: 1rem;
+    --fs-500: 1.25rem;
+    --fs-600: 1.5rem;
+    --fs-h1: clamp(2rem, 4vw + 1rem, 3.2rem);
+    --fs-title: clamp(1rem, 2vw + 1rem, 1.9rem);
+    --fs-xl: 5rem;
+    /* color */
+    --clr-primary: #383838;
+    --clr-accent: #150000;
+
+    --bg-clr-macos: #46B1FF;
+    --bg-clr-productivity: #FF8946;
+
+    /* Font sizes: fixed */
+    --fs-00: .5rem;
+    --fs-0: .75rem;
+    --fs-1: 1rem;
+    --fs-2: 1.1rem;
+    --fs-3: 1.25rem;
+    --fs-4: 1.5rem;
+    --fs-5: 2rem;
+    --fs-6: 2.5rem;
+    --fs-7: 3rem;
+    --fs-8: 3.5rem;
+    /* Font sizes: fluid */
+    --fs-fluid-0: clamp(.75rem, 1.5vw, 1rem);
+    --fs-fluid-1: clamp(1rem, 2vw, 1.3rem);
+    --fs-fluid-2: clamp(1.5rem, 3vw, 1.955rem);
+    --fs-fluid-3: clamp(2rem, 4vw, 3.5rem);
+    /* Font weights */
+    --fw-1: 100;
+    --fw-2: 200;
+    --fw-3: 300;
+    --fw-4: 400;
+    --fw-5: 500;
+    --fw-6: 600;
+    --fw-7: 700;
+    --fw-8: 800;
+    --fw-9: 900;
+
+}
+
+html {
+}
+
+@font-face {
+    font-family: 'Fluxisch Else';
+    src: url('FluxischElse-bold.woff') format('font-woff');
+}
+
+a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: var(--clr-primary);
+}
+
+.skip-nav {
+    display: inline-block;
+    position: absolute;
+    background: black;
+    font-style: var(--fs-fluid-3);
+    font-weight: var(--fw-6);
+    color: white !important;
+    padding: 5px 10px;
+    transform: translateY(-150px);
+    transition: 150ms ease;
+}
+
+.skip-nav:focus {
+    transform: translateY(0px);
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--clr-primary);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    max-height: 150px;
+    padding-top: 1.3rem;
+    /*margin-bottom: 2.100rem;*/
+    min-width: 100%;
+    background-color: #fff;
+}
+
+.name {
+    font-family: 'Fluxisch Else', sans-serif;
+    font-size: var(--fs-fluid-3);
+    width: max-content;
+    margin: 0 0 1.3rem 0;
+}
+
+.top-nav {
+    width: 100%;
+    box-shadow: 2px 10px 5px -5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list,
+.nav-list li {
+    display: flex;
+}
+
+.nav-list li {
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    border: solid .3px black;
+}
+
+.btn--nav {
+    display: inline-block;
+    height: 20px;
+    min-width: 100%;
+    padding-block: 5px;
+    font-weight: 500;
+    font-family: 'Nunito', sans-serif;
+}
+
+li.active {
+    background: black;
+}
+
+li.active > a {
+    color: white;
+}
+
+.container {
+    margin: calc(12vh + 1rem) 2rem 2rem 2rem;
+}
+
+main.container--tips {
+
+}
+
+.articles-list > li:not(:last-of-type),
+.tips-list > li:not(:last-of-type) {
+    margin-bottom: 4.900rem;
+    padding-bottom: 2.888rem;
+    border-bottom: 1.8px dotted black;
+}
+
+.articles-list > li:last-of-type,
+.tips-list > li:last-of-type {
+    margin-bottom: 2.5rem;
+}
+
+.article__title,
+.tip__title {
+    margin-bottom: 0.255rem;
+}
+
+.article__title > a,
+.tip__title > a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-fluid-2);
+}
+
+.tag {
+    font-size: var(--fs-300);
+    font-weight: 800;
+    margin-block: 0;
+}
+
+.article__description,
+.tip__description {
+    font-family: 'Nunito', sans-serif;
+    font-size: var(--fs-fluid-1);
+    line-height: 1.6;
+    color: var(--clr-primary);
+}
+
+.tip__read-more {
+    /*float: right;*/
+    font-weight: var(--fw-5);
+    text-decoration: underline;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__label {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 3px;
+}
+
+.form-group {
+
+}
+
+footer {
+    max-height: 130px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+}
+
+.bottom-nav {
+}
+
+.footer__list li {
+    margin: 4px;
+}
+
+.footer__link {
+    color: white;
+    font-size: 0.855rem;
+}
+
+.footer__list li:last-of-type {
+    margin-top: 0.8rem;
+}
+
+.footer__list li:last-of-type .footer__link {
+    color: #676767;
+}
+
+/* misc */
+.tag.macOS > a {
+    color: var(--bg-clr-macos);
+}
+
+.tag.productivity > a {
+    color: var(--bg-clr-productivity);
+}
+
+@media screen and (min-width: 825px) {
+    .nav-list {
+        height: 36px;
+    }
+
+    .btn--nav {
+        /*height: 100%;*/
+        padding: 0;
+        font-size: var(--fs-2);
+    }
+
+
+    .container {
+        margin: calc(15vh + 1rem) 2rem 2rem 2rem;
+        max-width: 700px;
+        margin-inline: auto;
+    }
+
+    .tip__title {
+        margin-bottom: 9px;
+    }
+
+    .tag {
+        font-size: var(--fs-1);
+    }
+}

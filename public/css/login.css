@@ -1,0 +1,87 @@
+.container--login {
+    display: grid;
+    place-items: center;
+}
+
+.login__title {
+    font-size: var(--fs-fluid-2);
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.login-title-divider {
+    width: 100%;
+    border: 1.8px dotted black;
+    margin-bottom: 2rem;
+
+}
+
+.form {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    width: inherit;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 0.5rem;
+}
+
+.form__label--login {
+    /*display: none;*/
+}
+
+.form-group > input {
+    width: inherit;
+}
+
+input {
+    border: none;
+    border-bottom: solid #d2d2d2 1px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    transition: border-bottom-color 200ms ease;
+}
+
+input,
+::placeholder {
+    font-size: var(--fs-3);
+}
+
+input:focus {
+    outline: var(--bg-clr-macos);
+    border-bottom: solid black 1px;
+    transition: border-bottom-color 200ms ease;
+}
+
+button[type="submit"] {
+    max-width: 22%;
+    align-self: end;
+    padding: 9px 22px;
+    margin-block: 12px;
+    font-size: var(--fs-2);
+    background-color: #000;
+    color: white;
+    box-shadow: none;
+    border: none;
+    border-radius: 2px;
+    transition: background-color 280ms ease;
+}
+
+button[type="submit"]:focus {
+    background-color: #383838;
+    transition: background-color 280ms ease;
+}
+
+.form__alert {
+
+}
+
+.form__alert--danger {
+    color: red;
+}

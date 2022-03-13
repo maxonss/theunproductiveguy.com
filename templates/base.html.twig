@@ -1,19 +1,54 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>theunproductiveguy | {% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('login.css', 'css') }}">
+    <link rel="stylesheet" href="{{ asset('reset.css', 'css') }}">
+    <link rel="stylesheet" href="{{ asset('main.css', 'css') }}">
+    <link rel="stylesheet" href="{{ asset('helpers.css', 'css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png', 'icns') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png', 'icns') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png', 'icns') }}">
+    <link rel="manifest" href="{{ asset('/site.webmanifest') }}">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+
+</head>
+<body>
+{% block body %}
+    <header>
+        <h3 class="name">The Unproductive Guy</h3>
+        <a class="skip-nav" href="#featured">Skip to content</a>
+        {% block header %}
+            <a class="skip-nav" href="#footer">Go to footer</a>
+            {# hide the nav bar when logging in #}
+            {% if controller_name != 'auth' %}
+            <nav class="top-nav" aria-label="Main navigation">
+                <ul class="nav-list" role="list">
+                    <li{% if page_name == 'tip' %} class="active"{% endif %}><a href="{{ path('app_index') }}" class="btn btn--nav">Tip</a></li>
+                    <li{% if page_name == 'articles' %} class="active"{% endif %}><a href="{{ path('app_index') }}" class="btn btn--nav">Article</a></li>
+                    <li{% if page_name == 'about' %} class="active"{% endif %}><a href="{{ path('app_index') }}" class="btn btn--nav">About</a></li>
+                </ul>
+            </nav>
+            {% endif %}
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    </header>
+    <main class="container {% block mainStyle %}{% endblock %}">
+        {% block main %}{% endblock %}
+    </main>
+{% endblock %}
+<footer>
+    {% block footer %}
+
+    {% endblock %}
+</footer>
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>

@@ -17,6 +17,17 @@ framework:
     php_errors:
         log: true
 
+    # asset packages
+    assets:
+        packages:
+            css:
+                base_path: '/css'
+            js:
+                base_path: '/js'
+            img:
+                base_path: '/img'
+            icns:
+                base_path: '/icns'
 when@test:
     framework:
         test: true

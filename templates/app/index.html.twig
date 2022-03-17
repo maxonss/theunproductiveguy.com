@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome{% endblock %}
+{% block mainStyle %}container--blog{% endblock %}
+    {% block main %}
+<h1 class="sr-only">Tips about macOS and Productivity</h1>
+<ul class="tips-list">
+    <li>
+        <article class="tip">
+            <h3 class="tip__title"><a id="featured" href="#">Stop using your Dock right now</a></h3>
+            <h4 class="tag macOS"><a href="#">macOS</a></h4>
+            <p class="tip__description">Curabitur in nulla massa. Mauris at scelerisque leo. Curabitur suscipit
+                risus quis neque pharetra, ac mattis eros cursus. Donec in leo ut nibh ultricies</p>
+            <a href="#read-more" class="tip__read-more">Read More</a>
+        </article>
+    </li>
+    {% endblock %}

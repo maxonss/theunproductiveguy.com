@@ -30,21 +30,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private ?string $password;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private ?\DateTimeImmutable $created_at;
 
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Post::class)]
-    #[ORM\Column(nullable: true)]
-    private ?ArrayCollection $posts;
-
-    #[ORM\ManyToMany(targetEntity: Post::class, mappedBy: 'updated_by')]
-    #[ORM\Column(nullable: true)]
-    private ?ArrayCollection $updated_posts;
+    private $posts;
 
     public function __construct()
     {
+        $this->created_at = new \DateTimeImmutable('now');
         $this->posts = new ArrayCollection();
-        $this->updated_posts = new ArrayCollection();
+        $this->setRoles(['ROLE_USER']);
     }
 
     public function getId(): ?int
@@ -129,7 +125,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getCreatedAt(): ?\DateTime
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->created_at;
     }
@@ -166,33 +162,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             if ($post->getAuthor() === $this) {
                 $post->setAuthor(null);
             }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Post>
-     */
-    public function getUpdatedPosts(): Collection
-    {
-        return $this->updated_posts;
-    }
-
-    public function addUpdatedPost(Post $updatedPost): self
-    {
-        if (!$this->updated_posts->contains($updatedPost)) {
-            $this->updated_posts[] = $updatedPost;
-            $updatedPost->addUpdatedBy($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUpdatedPost(Post $updatedPost): self
-    {
-        if ($this->updated_posts->removeElement($updatedPost)) {
-            $updatedPost->removeUpdatedBy($this);
         }
 
         return $this;
